@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>local Storage를 통한 로그인 및 Todo List 만들기</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=Wallpoet&display=swap">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="wrap">
+        <div class="content">
+            <h1 class="title">Vanilla Reacts to Vue</h1>
+            <div class="login">
+                <div id="loginMsg" class="login__msg">
+                    Welcome :) 
+
+                    <div id="loginInfo" class="login__info blind">
+                        <span id="loginUserName">OOO</span>
+                        <button type="button" id="btnLogout" class="btn btn--logout">Logout</button>
+                    </div>
+                </div>
+
+                <form id="loginForm" class="form form--login">
+                    <input type="text" id="iptUserName" class="ipt" placeholder="What is your Name?" maxlength="15" required autocomplete="off">
+                    <input type="submit" id="iptSubmit" class="ipt ipt--submit" value="Login">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

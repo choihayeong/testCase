@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie 🍪</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        button {border:0 none;background:transparent;cursor:pointer}
+        .wrap {max-width:750px;margin:0 auto}
+        .btn {padding:10px;color:#5a5aff;border:1px solid #ccc;border-radius:5px;background-color:#ccc}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header class="header">
+            <h1>Cookie 🍪</h1>
+        </header>
+        <section class="section">
+            <div class="contents">
+                <button type="button" id="btnTemp" class="btn btn--temp">setCoooooooooookie</button>
+                <button type="button" id="btnRemove" class="btn btn--remove">removeCooooooooookie</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- <script src="script.js"></script> -->
+    <script>
+        function setCookie() {
+            const date = new Date();
+            date.setDate(date.getDate() + 7);
+
+            let willCookie = '';
+            willCookie += `CookieName${Date.now()}=${Date.now()};`;
+            willCookie += "expires=" + date.toUTCString();
+
+            document.cookie = willCookie;
+        }
+        function removeCookie() {
+            const date = new Date();
+            date.setDate(date.getDate() - 1);
+
+            let willCookie = '';
+            willCookie += "CookieName=Value;";
+            willCookie += "Expires=" + date.toUTCString();
+
+            document.cookie = willCookie;
+        }
+
+        const btnTemp = document.querySelector('#btnTemp');
+
+        btnTemp.addEventListener('click', setCookie);
+    </script>
+</body>
+</html>

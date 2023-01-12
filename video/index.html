@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Scroll Play</title>
+</head>
+<body>
+    <div class="wrap">
+        <div style="height:200vh">
+            Height: 200vh Contents
+        </div>
+        <div>
+            <video src="./assets/video/video1.mp4" id="tempVideo" muted></video>
+        </div>
+    </div>
+
+    <script>
+        const tempVideo = document.querySelector('#tempVideo');
+        tempVideo.play();
+    </script>
+</body>
+</html>

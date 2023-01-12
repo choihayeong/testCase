@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+$size: 50vmin;
+
+@mixin face($color, $tx: 0px, $ty: 0px, $tz: 0px, $rx: 0deg, $ry: 0deg) {
+  background-color: $color;
+  transform: translateX($tx) translateY($ty) translateZ($tz) rotateX($rx) rotateY($ry);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  background-color: black;
+  overflow: hidden;
+  perspective: 1000px
+}
+.cube {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: $size;
+  height: $size;
+  margin: auto;
+  transform-style: preserve-3d;
+  transform: rotateX(-25deg) rotateY(25deg);
+  cursor: move;
+
+  .face {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $size;
+    height: $size;
+    border: 5px solid white;
+
+    &.face--front {
+      @include face($color: rgba(255, 192, 203, 0.5), $tz: $size / 2);
+    }
+    &.face--back {
+      @include face($color: rgba(135, 206, 235, 0.5), $tz: -$size / 2);
+    }
+    &.face--top {
+      @include face($color: rgba(0, 128, 0, 0.5), $ty: -$size / 2, $rx: 90deg);
+    }
+    &.face--bottom {
+      @include face($color: rgba(255, 255, 0, 0.5), $ty: $size / 2, $rx: 90deg);
+    }
+    &.face--left {
+      @include face($color: rgba(0, 0, 255, 0.5), $tx: -$size / 2, $ry: 90deg);
+    }
+    &.face--right {
+      @include face($color: rgba(255, 0, 0, 0.5), $tx: $size / 2, $ry: 90deg);
+    }
+  }
+}

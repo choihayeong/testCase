@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>left scroll drag</title>
+    <style>
+        * {margin:0;padding:0;box-sizing:border-box}
+        .wrap {overflow:hidden;width:375px;margin:0 auto}
+        .contents {margin-top:60px;overflow-x:auto}
+        .contents::-webkit-scrollbar {height:8px;border-radius:4px;background-color:#ccc}
+        .contents::-webkit-scrollbar-thumb {border-radius:4px;background-color:#0030cb;background-clip:padding-box}
+        .contents::-webkit-scrollbar-button {display:none;width:0;height:0}
+        .contents::-webkit-scrollbar-corner {background:transparent}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="contents">
+            <img src="dummyimg.jpg">
+        </div>
+    </div>
+
+    <script>
+        // scroll drag
+		let x;
+		let left;
+		let down;
+
+        const body = document.body;
+        const contents = document.querySelector('.contents');
+
+        contents.addEventListener('mousedown', e => {
+            e.preventDefault();
+            down = true;
+            x = e.pageX;
+            
+            left = contents.scrollLeft;
+        });
+
+        body.addEventListener('mousemove', e => {
+            if (down) {
+                let newX = e.pageX;
+                contents.scrollLeft = left - newX + x;
+            }
+        });
+
+        body.addEventListener('mouseup', e => {
+            down = false;
+        });
+    </script>
+</body>
+</html>
